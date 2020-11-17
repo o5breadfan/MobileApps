@@ -15,6 +15,11 @@ public class DetailActivity extends AppCompatActivity {
         String detail = arguments.get("ARG_ITEM_ID").toString();
 
         TextView details = findViewById(R.id.details);
-        details.setText(detail);
+        StringBuilder sb = new StringBuilder();
+        sb.append("Информация об элементе: ").append(detail);
+        for(int j = 0; j < Integer.parseInt(detail); j++){
+            sb.append("\n Детальная информация. ");
+        }
+        details.setText(sb);
     }
 }

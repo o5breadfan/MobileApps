@@ -8,20 +8,27 @@
 
     <TextView
         android:id="@+id/id_text"
-        android:layout_width="95dp"
-        android:layout_height="48dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="16dp"
         android:text="TextView"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="0dp" />
+        android:textSize="@dimen/textViewDp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/content"
-        android:layout_width="297dp"
-        android:layout_height="46dp"
-        android:layout_marginEnd="4dp"
-        android:layout_marginRight="4dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="144dp"
+        android:layout_marginRight="144dp"
         android:text="TextView"
+        android:textSize="@dimen/textViewDp"
         app:layout_constraintBottom_toBottomOf="@+id/id_text"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/id_text" />
+        app:layout_constraintTop_toTopOf="@+id/id_text"
+        app:layout_constraintVertical_bias="1.0" />
 </androidx.constraintlayout.widget.ConstraintLayout>

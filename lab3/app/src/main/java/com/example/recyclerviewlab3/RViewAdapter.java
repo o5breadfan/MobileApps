@@ -17,6 +17,7 @@ public class RViewAdapter extends RecyclerView.Adapter<RViewAdapter.ViewHolder> 
     RViewAdapter(List<DummyContent.DummyItem> items){
         this.items = items;
     }
+    
     @Override
     public ViewHolder onCreateViewHolder (ViewGroup parent, int viewType){
         View view = LayoutInflater.from(parent.getContext())

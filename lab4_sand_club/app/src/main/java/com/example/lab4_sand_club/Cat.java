@@ -5,7 +5,10 @@ public class Cat {
     public int age;
     public int color;
 
-    public Cat(){
+    public Cat(String nameIn, int ageIn, int colorIn){
+        this.name = nameIn;
+        this.age = ageIn;
+        this.color = colorIn;
 
     }
 }

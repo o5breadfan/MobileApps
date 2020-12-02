@@ -27,4 +27,24 @@
         app:layout_constraintStart_toEndOf="@+id/outputTView"
         app:layout_constraintTop_toTopOf="@+id/outputTView" />
 
+    <TextView
+        android:id="@+id/fromGson"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.093"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/outputTView"
+        app:layout_constraintVertical_bias="0.42" />
+
+    <View
+        android:id="@+id/gsonColor"
+        android:layout_width="150dp"
+        android:layout_height="53dp"
+        app:layout_constraintBottom_toBottomOf="@+id/fromGson"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/fromGson"
+        app:layout_constraintTop_toTopOf="@+id/fromGson" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

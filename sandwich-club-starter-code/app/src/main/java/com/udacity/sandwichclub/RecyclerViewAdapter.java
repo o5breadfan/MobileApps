@@ -38,21 +38,21 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
         TextView sandwichName;
-        ViewHolder( View itemView) {
+        ViewHolder(View itemView) {
             super(itemView);
             sandwichName = itemView.findViewById(R.id.sandwich);
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
-                public void onClick(View activ) {
-                    launchDetailActivity(activ, getAdapterPosition());
+                public void onClick(View detail) {
+                    launchDetailActivity(detail, getAdapterPosition());
                 }
             });
         }
 
-        private void launchDetailActivity(View activ, int position) {
-            Intent intent = new Intent(activ.getContext(), DetailActivity.class);
+        private void launchDetailActivity(View detail, int position) {
+            Intent intent = new Intent(detail.getContext(), DetailActivity.class);
             intent.putExtra(DetailActivity.EXTRA_POSITION, position);
-            activ.getContext().startActivity(intent);
+            detail.getContext().startActivity(intent);
         }
     }
 }

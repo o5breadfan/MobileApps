@@ -17,14 +17,14 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
-    RecyclerView rview = findViewById(R.id.sandwiches_rview);
+
     private List<Sandwich> SandwichList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        RecyclerView rview = findViewById(R.id.sandwiches_rview);
         String[] sandwiches = getResources().getStringArray(R.array.sandwich_names);
         String[] sandList = getResources().getStringArray(R.array.sandwich_details);
 
@@ -44,6 +44,6 @@ public class MainActivity extends AppCompatActivity {
         rview.setLayoutManager(mLayoutManager);
 
         RecyclerViewAdapter adapter = new RecyclerViewAdapter(SandwichList);
-        rview.setAdapter(adapter);;
+        rview.setAdapter(adapter);
     }
 }

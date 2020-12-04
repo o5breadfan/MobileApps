@@ -3,6 +3,7 @@ package com.example.a.event_handling;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -29,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
         return true;
     }
 
+    @SuppressLint("ClickableViewAccessibility")
     @Override
     public boolean onOptionsItemSelected(MenuItem item){
         int id = item.getItemId();
@@ -73,7 +75,7 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public boolean onTouch(View v, MotionEvent event) {
                         handleTouch(event);
-                        return false;
+                        return true;
                     }
                 });
                 return true;
@@ -93,7 +95,7 @@ public class MainActivity extends AppCompatActivity {
         TextView touchView2 = findViewById(R.id.touchTV2);
         int pointerCount = m.getPointerCount();
         int x,y,id,action,actionIndex;
-        String actionString;
+        String actionString, TouchStatus;
         for(int i = 0; i < pointerCount; i++){
             x = (int) m.getX(i);
             y = (int) m.getY(i);
@@ -112,8 +114,19 @@ public class MainActivity extends AppCompatActivity {
                     break;
                 case MotionEvent.ACTION_POINTER_UP:
                     actionString = "PNTR UP";
+                    break;
+                case MotionEvent.ACTION_MOVE:
+                    actionString = "MOVE";
+                    break;
+                default:
+                    actionString = "";
             }
+            TouchStatus = "Action: " + actionString + " Index: " + actionIndex + " ID: " + id +
+                    " X: " + x + " Y: " + y;
+            if(id == 0)
+                touchView.setText(TouchStatus);
+            else
+                touchView2.setText(TouchStatus);
         }
-
     }
 }

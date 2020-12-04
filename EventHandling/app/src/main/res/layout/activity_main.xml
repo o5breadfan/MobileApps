@@ -50,4 +50,14 @@
         app:layout_constraintStart_toStartOf="@+id/touchTV"
         app:layout_constraintTop_toBottomOf="@+id/touchTV" />
 
+    <TextView
+        android:id="@+id/gestureView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        app:layout_constraintBottom_toTopOf="@+id/clickedTV"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/touchTV2" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

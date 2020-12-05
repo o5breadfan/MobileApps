@@ -21,6 +21,8 @@ public class RViewAdapter extends RecyclerView.Adapter<RViewAdapter.PhotoHolder>
    }
 
     public class PhotoHolder extends RecyclerView.ViewHolder{
+      // final ImageView image;
+      // final TextView image_name;
        public PhotoHolder(View item){
            super(item);
            image = item.findViewById(R.id.imageView);
@@ -36,12 +38,14 @@ public class RViewAdapter extends RecyclerView.Adapter<RViewAdapter.PhotoHolder>
     }
 
     @Override
-    public void onBindViewHolder(@NonNull RViewAdapter.PhotoHolder holder, int position) {
+    public void onBindViewHolder(@NonNull PhotoHolder holder, int position) {
         Photo photo = list.get(position);
+        //holder.image_name.setText(photo.getTitle());
+       // holder.image.setImageResource(photo.getFarm());
     }
 
     @Override
     public int getItemCount() {
-        return 0;
+        return list.size();
     }
 }

@@ -5,7 +5,7 @@ import com.google.gson.GsonBuilder;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class flickerAPI {
+public class ServiceAPI {
     private static final String BASE_URL = "https://www.api.flickr.com/";
     private static Retrofit retrofit = null;
 

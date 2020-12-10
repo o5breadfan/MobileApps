@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.squareup.picasso.Picasso;
 import java.util.List;
 import com.example.photogallery.Photo;
+import com.example.photogallery.Photos;
 
 public class RViewAdapter extends RecyclerView.Adapter<RViewAdapter.PhotoHolder> {
    private List<Photo> list;
@@ -21,7 +22,7 @@ public class RViewAdapter extends RecyclerView.Adapter<RViewAdapter.PhotoHolder>
    }
 
     public class PhotoHolder extends RecyclerView.ViewHolder{
-      // final ImageView image;
+        ImageView image;
       // final TextView image_name;
        public PhotoHolder(View item){
            super(item);
@@ -40,12 +41,14 @@ public class RViewAdapter extends RecyclerView.Adapter<RViewAdapter.PhotoHolder>
     @Override
     public void onBindViewHolder(@NonNull PhotoHolder holder, int position) {
         Photo photo = list.get(position);
-        //holder.image_name.setText(photo.getTitle());
-       // holder.image.setImageResource(photo.getFarm());
+        String text = photo.getOwner();
+        image_name.setText(text);
+        Picasso.get().load(photo.url_s).into(image);
     }
 
     @Override
     public int getItemCount() {
         return list.size();
     }
+
 }

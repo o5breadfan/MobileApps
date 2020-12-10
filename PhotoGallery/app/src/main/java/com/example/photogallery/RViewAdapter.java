@@ -1,5 +1,6 @@
 package com.example.photogallery;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -7,18 +8,38 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.room.Room;
+
 import com.squareup.picasso.Picasso;
 import java.util.List;
 import com.example.photogallery.Photo;
 import com.example.photogallery.Photos;
+import com.example.photogallery.PhotosDao;
 
 public class RViewAdapter extends RecyclerView.Adapter<RViewAdapter.PhotoHolder> {
    private List<Photo> list;
    private ImageView image;
    private TextView image_name;
+   PhotosDao photoDao;
+   PhotosDB db;
+   Photos photos;
+   Response response;
+   Context context;
 
-   public RViewAdapter(List<Photo> items) {
-       list = items;
+   public RViewAdapter( Context context, Response response) {
+       this.response = response;
+       this.context = context;
+       db.getDatabase(context);
+       db = Room.databaseBuilder(context,PhotosDB.class,"Database").allowMainThreadQueries().build();
+       photoDao = db.photoDao();
+       //list = items;
+       for (int i = 0; i < response.getPhotos().getPhoto().size(); i++){
+           Photo photo = response.getPhotos().getPhoto().get(i);
+           try{
+               photoDao.insertPhoto(photo);
+           }
+           catch (Exception ex){  }
+       }
    }
 
     public class PhotoHolder extends RecyclerView.ViewHolder{
@@ -34,16 +55,19 @@ public class RViewAdapter extends RecyclerView.Adapter<RViewAdapter.PhotoHolder>
     @NonNull
     @Override
     public RViewAdapter.PhotoHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-       View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.recycler_photo,parent,false);
+       View view = LayoutInflater.from(context).inflate(R.layout.recycler_photo,parent,false);
        return new PhotoHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull PhotoHolder holder, int position) {
-        Photo photo = list.get(position);
-        String text = photo.getOwner();
+
+        list = photoDao.LoadAll();
+        String text = list.get(position).getOwner();
         image_name.setText(text);
-        Picasso.get().load(photo.url_s).into(image);
+        Picasso.with(context).load(list.get(position).getUrl_s()).into(image);
+        /*photos = response.getPhotos();
+        Picasso.with(context).load(photos.getPhoto().get(position).getUrl_s()).into(image);*/
     }
 
     @Override

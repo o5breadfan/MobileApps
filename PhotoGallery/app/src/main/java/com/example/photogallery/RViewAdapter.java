@@ -26,10 +26,10 @@ public class RViewAdapter extends RecyclerView.Adapter<RViewAdapter.PhotoHolder>
    Response response;
    Context context;
 
-   public RViewAdapter( Context context, Response response) {
-       this.response = response;
-       this.context = context;
-       db.getDatabase(context);
+   public RViewAdapter(List<Photo> items,Context contexts) {
+       list = items;
+       this.context = contexts;
+      /* db.getDatabase(context);
        db = Room.databaseBuilder(context,PhotosDB.class,"Database").allowMainThreadQueries().build();
        photoDao = db.photoDao();
        //list = items;
@@ -39,12 +39,10 @@ public class RViewAdapter extends RecyclerView.Adapter<RViewAdapter.PhotoHolder>
                photoDao.insertPhoto(photo);
            }
            catch (Exception ex){  }
-       }
+       }*/
    }
 
     public class PhotoHolder extends RecyclerView.ViewHolder{
-        ImageView image;
-      // final TextView image_name;
        public PhotoHolder(View item){
            super(item);
            image = item.findViewById(R.id.imageView);
@@ -62,12 +60,10 @@ public class RViewAdapter extends RecyclerView.Adapter<RViewAdapter.PhotoHolder>
     @Override
     public void onBindViewHolder(@NonNull PhotoHolder holder, int position) {
 
-        list = photoDao.LoadAll();
+        //list = photoDao.LoadAll();
         String text = list.get(position).getOwner();
         image_name.setText(text);
         Picasso.with(context).load(list.get(position).getUrl_s()).into(image);
-        /*photos = response.getPhotos();
-        Picasso.with(context).load(photos.getPhoto().get(position).getUrl_s()).into(image);*/
     }
 
     @Override

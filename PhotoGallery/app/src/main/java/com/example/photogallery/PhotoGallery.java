@@ -34,12 +34,27 @@ public class PhotoGallery extends AppCompatActivity {
         recyclerView.setLayoutManager(new GridLayoutManager(this,3));
         Retrofit retrofit = ServiceAPI.getRetrofit();
         context=this;
+       /* retrofit.create(FlickRecent.class).getSearchPhotos("cats").enqueue(new Callback<Response>() {
+            @Override
+            public void onResponse(Call<Response> call, retrofit2.Response<Response> response) {
+                responses = response.body();
+                List<Photo> photos = responses.getPhotos().getPhoto();
+                adapter = new RViewAdapter(photos,context);
+                recyclerView.setAdapter(adapter);
+                Toast.makeText(PhotoGallery.this, "GOOD REQUEST",Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onFailure(Call<Response> call, Throwable t) {
+                Toast.makeText(PhotoGallery.this, "BAD REQUEST",Toast.LENGTH_SHORT).show();
+            }
+        });*/
         retrofit.create(FlickRecent.class).getRecent().enqueue(new Callback<Response>() {
             @Override
             public void onResponse(Call<Response> call, retrofit2.Response<Response> response) {
                 responses = response.body();
                 List<Photo> photos = responses.getPhotos().getPhoto();
-                adapter = new RViewAdapter(context,responses);
+                adapter = new RViewAdapter(photos,context);
                 recyclerView.setAdapter(adapter);
                 Toast.makeText(PhotoGallery.this, "GOOD REQUEST",Toast.LENGTH_SHORT).show();
             }

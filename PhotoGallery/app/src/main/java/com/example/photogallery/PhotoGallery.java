@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.MenuItemCompat;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.room.Room;
+
 import java.util.ArrayList;
 
 import android.app.SearchManager;
@@ -36,26 +38,26 @@ public class PhotoGallery extends AppCompatActivity {
     Context context;
     Response responses;
     PhotosDB db;
-    //List<Photo> photos;
-   // PhotosDao photoDao;
-    //TextView image_name;
-   // ImageView image;
+    List<Photo> photos;
+    PhotosDao photoDao;
+    TextView image_name;
+    ImageView image;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.gallery_activity);
         final RecyclerView recyclerView = findViewById(R.id.recyclerV);
+        //photoDao = db.getDatabase(context).photoDao();
         recyclerView.setLayoutManager(new GridLayoutManager(this,3));
         Retrofit retrofit = ServiceAPI.getRetrofit();
         context=this;
-       // db.getDatabase(context);
         retrofit.create(FlickRecent.class).getRecent().enqueue(new Callback<Response>() {
             @Override
             public void onResponse(Call<Response> call, retrofit2.Response<Response> response) {
                 responses = response.body();
-               List<Photo> photos = responses.getPhotos().getPhoto();
-                adapter = new RViewAdapter(photos,context);
+                List<Photo> photos = responses.getPhotos().getPhoto();
+                adapter = new RViewAdapter(photos,context, photoDao);
                 recyclerView.setAdapter(adapter);
                 Toast.makeText(PhotoGallery.this, "GOOD REQUEST",Toast.LENGTH_SHORT).show();
             }
@@ -65,6 +67,10 @@ public class PhotoGallery extends AppCompatActivity {
                 Toast.makeText(PhotoGallery.this, "BAD REQUEST",Toast.LENGTH_SHORT).show();
             }
         });
+        //db = Room.databaseBuilder(context,PhotosDB.class,"database").allowMainThreadQueries().build();
+       // photoDao = db.getDatabase(context).photoDao();
+        //list = items;
+
     }
 
     @Override
@@ -85,7 +91,7 @@ public class PhotoGallery extends AppCompatActivity {
                         public void onResponse(Call<Response> call, retrofit2.Response<Response> response) {
                             responses = response.body();
                             List<Photo> photos = responses.getPhotos().getPhoto();
-                            adapter = new RViewAdapter(photos,context);
+                            adapter = new RViewAdapter(photos,context, photoDao);
                             recyclerView.setAdapter(adapter);
                             Toast.makeText(PhotoGallery.this, "GOOD REQUEST",Toast.LENGTH_SHORT).show();
                         }
@@ -109,7 +115,7 @@ public class PhotoGallery extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item){
-       /* int id = item.getItemId();
+       /*int id = item.getItemId();
         if(id == R.id.LocalDB){
             photos = photoDao.LoadAll();
             for(int i = 0; i < photos.size(); i++){

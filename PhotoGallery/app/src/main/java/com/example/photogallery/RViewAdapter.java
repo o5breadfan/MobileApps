@@ -6,12 +6,15 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.room.Room;
 
 import com.squareup.picasso.Picasso;
 import java.util.List;
+import com.example.photogallery.PhotosDB;
 import com.example.photogallery.Photo;
 import com.example.photogallery.Photos;
 import com.example.photogallery.PhotosDao;
@@ -20,27 +23,15 @@ public class RViewAdapter extends RecyclerView.Adapter<RViewAdapter.PhotoHolder>
    private List<Photo> list;
    private ImageView image;
    private TextView image_name;
-   PhotosDao photoDao;
-   PhotosDB db;
+   PhotosDao photosDao;
    Photos photos;
    //Response response;
    Context context;
 
-   public RViewAdapter(List<Photo> items,Context contexts) {
+   public RViewAdapter(List<Photo> items,Context contexts, PhotosDao photosDaos) {
        list = items;
        this.context = contexts;
-       //db.getDatabase(context);
-      // db = Room.databaseBuilder(context,PhotosDB.class,"database").allowMainThreadQueries().build();
-       //photoDao = db.photoDao();
-       //list = items;
-       /*for (int i = 0; i < list.size(); i++){
-           Photo photo = list.get(i);
-           try{
-               photoDao.insertPhoto(photo);
-           }
-           catch (Exception ex){  }
-       }*/
-
+       photosDao = photosDaos;
    }
 
     public class PhotoHolder extends RecyclerView.ViewHolder{
@@ -51,8 +42,11 @@ public class RViewAdapter extends RecyclerView.Adapter<RViewAdapter.PhotoHolder>
            item.setOnClickListener(new View.OnClickListener() {
                @Override
                public void onClick(View v) {
-                   //Photo photo = list.get(v.getId());
-                   //photoDao.insertPhoto(photo);
+                      // db = Room.databaseBuilder(context, PhotosDB.class, "database").allowMainThreadQueries().build();
+                       // photoDao = db.photoDao();
+                       //list = items;
+                        Photo photo = list.get(v.getId());
+                        photosDao.insertPhoto(photo);
                }
            });
        }

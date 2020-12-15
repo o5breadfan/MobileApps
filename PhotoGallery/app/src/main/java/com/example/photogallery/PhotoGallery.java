@@ -42,22 +42,24 @@ public class PhotoGallery extends AppCompatActivity {
     PhotosDao photoDao;
     TextView image_name;
     ImageView image;
+    RecyclerView recyclerView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.gallery_activity);
-        final RecyclerView recyclerView = findViewById(R.id.recyclerV);
-        //photoDao = db.getDatabase(context).photoDao();
+        recyclerView = findViewById(R.id.recyclerV);
         recyclerView.setLayoutManager(new GridLayoutManager(this,3));
         Retrofit retrofit = ServiceAPI.getRetrofit();
         context=this;
+        db = Room.databaseBuilder(context,PhotosDB.class,"database").allowMainThreadQueries().build();
+        photoDao = db.photoDao();
         retrofit.create(FlickRecent.class).getRecent().enqueue(new Callback<Response>() {
             @Override
             public void onResponse(Call<Response> call, retrofit2.Response<Response> response) {
                 responses = response.body();
                 List<Photo> photos = responses.getPhotos().getPhoto();
-                adapter = new RViewAdapter(photos,context, photoDao);
+                adapter = new RViewAdapter(photos,context, photoDao,recyclerView);
                 recyclerView.setAdapter(adapter);
                 Toast.makeText(PhotoGallery.this, "GOOD REQUEST",Toast.LENGTH_SHORT).show();
             }
@@ -67,10 +69,6 @@ public class PhotoGallery extends AppCompatActivity {
                 Toast.makeText(PhotoGallery.this, "BAD REQUEST",Toast.LENGTH_SHORT).show();
             }
         });
-        //db = Room.databaseBuilder(context,PhotosDB.class,"database").allowMainThreadQueries().build();
-       // photoDao = db.getDatabase(context).photoDao();
-        //list = items;
-
     }
 
     @Override
@@ -79,7 +77,7 @@ public class PhotoGallery extends AppCompatActivity {
             inflater.inflate(R.menu.search_menu, menu);
             MenuItem item = menu.findItem(R.id.menuSearch);
             SearchView searchView = (SearchView)item.getActionView();
-            final RecyclerView recyclerView = findViewById(R.id.recyclerV);
+            recyclerView = findViewById(R.id.recyclerV);
             recyclerView.setLayoutManager(new GridLayoutManager(this,3));
             Retrofit retrofit = ServiceAPI.getRetrofit();
             context=this;
@@ -91,7 +89,7 @@ public class PhotoGallery extends AppCompatActivity {
                         public void onResponse(Call<Response> call, retrofit2.Response<Response> response) {
                             responses = response.body();
                             List<Photo> photos = responses.getPhotos().getPhoto();
-                            adapter = new RViewAdapter(photos,context, photoDao);
+                            adapter = new RViewAdapter(photos,context, photoDao, recyclerView);
                             recyclerView.setAdapter(adapter);
                             Toast.makeText(PhotoGallery.this, "GOOD REQUEST",Toast.LENGTH_SHORT).show();
                         }
@@ -115,15 +113,43 @@ public class PhotoGallery extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item){
-       /*int id = item.getItemId();
+       int id = item.getItemId();
         if(id == R.id.LocalDB){
             photos = photoDao.LoadAll();
-            for(int i = 0; i < photos.size(); i++){
-                String text = photos.get(i).getOwner();
-                image_name.setText(text);
-                Picasso.with(context).load(photos.get(i).getUrl_s()).into(image);
+            adapter = new RViewAdapter(photos,context, photoDao, recyclerView);
+            recyclerView.setAdapter(adapter);
+            return true;
+        }
+        if(id == R.id.DeleteDB){
+            for (int i = 0; i < photos.size(); i++){
+                Photo photo = photos.get(i);
+                try{
+                    photoDao.deletePhoto(photo);
+                }
+                catch (Exception ex){  }
             }
-        }*/
-        return true;
+            photos = photoDao.LoadAll();
+            adapter = new RViewAdapter(photos,context, photoDao, recyclerView);
+            recyclerView.setAdapter(adapter);
+
+        }
+        if(id == R.id.InternetDB){
+            Retrofit retrofit = ServiceAPI.getRetrofit();
+            retrofit.create(FlickRecent.class).getRecent().enqueue(new Callback<Response>() {
+                @Override
+                public void onResponse(Call<Response> call, retrofit2.Response<Response> response) {
+                    responses = response.body();
+                    List<Photo> photos = responses.getPhotos().getPhoto();
+                    adapter = new RViewAdapter(photos,context, photoDao,recyclerView);
+                    recyclerView.setAdapter(adapter);
+                }
+
+                @Override
+                public void onFailure(Call<Response> call, Throwable t) {
+
+                }
+            });
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

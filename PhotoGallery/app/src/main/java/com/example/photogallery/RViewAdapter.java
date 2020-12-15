@@ -24,14 +24,14 @@ public class RViewAdapter extends RecyclerView.Adapter<RViewAdapter.PhotoHolder>
    private ImageView image;
    private TextView image_name;
    PhotosDao photosDao;
-   Photos photos;
-   //Response response;
    Context context;
+   RecyclerView recyclerView;
 
-   public RViewAdapter(List<Photo> items,Context contexts, PhotosDao photosDaos) {
+   public RViewAdapter(List<Photo> items,Context contexts, PhotosDao dao, RecyclerView rview) {
        list = items;
        this.context = contexts;
-       photosDao = photosDaos;
+       photosDao = dao;
+       recyclerView = rview;
    }
 
     public class PhotoHolder extends RecyclerView.ViewHolder{
@@ -42,11 +42,9 @@ public class RViewAdapter extends RecyclerView.Adapter<RViewAdapter.PhotoHolder>
            item.setOnClickListener(new View.OnClickListener() {
                @Override
                public void onClick(View v) {
-                      // db = Room.databaseBuilder(context, PhotosDB.class, "database").allowMainThreadQueries().build();
-                       // photoDao = db.photoDao();
-                       //list = items;
-                        Photo photo = list.get(v.getId());
-                        photosDao.insertPhoto(photo);
+                   int item = recyclerView.getChildLayoutPosition(v);
+                   Photo photo = list.get(item);
+                   photosDao.insertPhoto(photo);
                }
            });
        }

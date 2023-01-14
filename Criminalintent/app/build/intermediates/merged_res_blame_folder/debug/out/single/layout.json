@@ -1,0 +1,18 @@
+[
+    {
+        "merged": "com.bignerdranch.android.criminalintent.app-mergeDebugResources-34:/layout/list_item_crime.xml",
+        "source": "com.bignerdranch.android.criminalintent.app-main-37:/layout/list_item_crime.xml"
+    },
+    {
+        "merged": "com.bignerdranch.android.criminalintent.app-mergeDebugResources-34:/layout/activity_main.xml",
+        "source": "com.bignerdranch.android.criminalintent.app-main-37:/layout/activity_main.xml"
+    },
+    {
+        "merged": "com.bignerdranch.android.criminalintent.app-mergeDebugResources-34:/layout/fragment_crime_list.xml",
+        "source": "com.bignerdranch.android.criminalintent.app-main-37:/layout/fragment_crime_list.xml"
+    },
+    {
+        "merged": "com.bignerdranch.android.criminalintent.app-mergeDebugResources-34:/layout/fragment_crime.xml",
+        "source": "com.bignerdranch.android.criminalintent.app-main-37:/layout/fragment_crime.xml"
+    }
+]

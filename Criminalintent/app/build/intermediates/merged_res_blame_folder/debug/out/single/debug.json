@@ -1,0 +1,114 @@
+[
+    {
+        "merged": "com.bignerdranch.android.criminalintent.app-merged_res-35:/layout_fragment_crime.xml.flat",
+        "source": "com.bignerdranch.android.criminalintent.app-main-37:/layout/fragment_crime.xml"
+    },
+    {
+        "merged": "com.bignerdranch.android.criminalintent.app-merged_res-35:/mipmap-xxhdpi_ic_launcher_round.png.flat",
+        "source": "com.bignerdranch.android.criminalintent.app-main-37:/mipmap-xxhdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "com.bignerdranch.android.criminalintent.app-merged_res-35:/layout_fragment_crime_list.xml.flat",
+        "source": "com.bignerdranch.android.criminalintent.app-main-37:/layout/fragment_crime_list.xml"
+    },
+    {
+        "merged": "com.bignerdranch.android.criminalintent.app-merged_res-35:/mipmap-xxxhdpi_ic_launcher.png.flat",
+        "source": "com.bignerdranch.android.criminalintent.app-main-37:/mipmap-xxxhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "com.bignerdranch.android.criminalintent.app-merged_res-35:/mipmap-xxxhdpi_ic_launcher_round.png.flat",
+        "source": "com.bignerdranch.android.criminalintent.app-main-37:/mipmap-xxxhdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "com.bignerdranch.android.criminalintent.app-merged_res-35:/layout_list_item_crime.xml.flat",
+        "source": "com.bignerdranch.android.criminalintent.app-main-37:/layout/list_item_crime.xml"
+    },
+    {
+        "merged": "com.bignerdranch.android.criminalintent.app-merged_res-35:/mipmap-xhdpi_ic_launcher_round.png.flat",
+        "source": "com.bignerdranch.android.criminalintent.app-main-37:/mipmap-xhdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "com.bignerdranch.android.criminalintent.app-merged_res-35:/mipmap-hdpi_ic_launcher_round.png.flat",
+        "source": "com.bignerdranch.android.criminalintent.app-main-37:/mipmap-hdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "com.bignerdranch.android.criminalintent.app-merged_res-35:/mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "com.bignerdranch.android.criminalintent.app-main-37:/mipmap-anydpi-v26/ic_launcher.xml"
+    },
+    {
+        "merged": "com.bignerdranch.android.criminalintent.app-merged_res-35:/drawable-xxhdpi_ic_solved.png.flat",
+        "source": "com.bignerdranch.android.criminalintent.app-main-37:/drawable-xxhdpi/ic_solved.png"
+    },
+    {
+        "merged": "com.bignerdranch.android.criminalintent.app-merged_res-35:/drawable-xxxhdpi_ic_solved.png.flat",
+        "source": "com.bignerdranch.android.criminalintent.app-main-37:/drawable-xxxhdpi/ic_solved.png"
+    },
+    {
+        "merged": "com.bignerdranch.android.criminalintent.app-merged_res-35:/drawable-hdpi_ic_solved.png.flat",
+        "source": "com.bignerdranch.android.criminalintent.app-main-37:/drawable-hdpi/ic_solved.png"
+    },
+    {
+        "merged": "com.bignerdranch.android.criminalintent.app-merged_res-35:/mipmap-mdpi_ic_launcher_round.png.flat",
+        "source": "com.bignerdranch.android.criminalintent.app-main-37:/mipmap-mdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "com.bignerdranch.android.criminalintent.app-merged_res-35:/menu_fragment_crime_list.xml.flat",
+        "source": "com.bignerdranch.android.criminalintent.app-main-37:/menu/fragment_crime_list.xml"
+    },
+    {
+        "merged": "com.bignerdranch.android.criminalintent.app-merged_res-35:/mipmap-mdpi_ic_launcher.png.flat",
+        "source": "com.bignerdranch.android.criminalintent.app-main-37:/mipmap-mdpi/ic_launcher.png"
+    },
+    {
+        "merged": "com.bignerdranch.android.criminalintent.app-merged_res-35:/drawable-mdpi_ic_menu_add.png.flat",
+        "source": "com.bignerdranch.android.criminalintent.app-main-37:/drawable-mdpi/ic_menu_add.png"
+    },
+    {
+        "merged": "com.bignerdranch.android.criminalintent.app-merged_res-35:/drawable-anydpi-v24_ic_launcher_foreground.xml.flat",
+        "source": "com.bignerdranch.android.criminalintent.app-pngs-30:/drawable-anydpi-v24/ic_launcher_foreground.xml"
+    },
+    {
+        "merged": "com.bignerdranch.android.criminalintent.app-merged_res-35:/mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "com.bignerdranch.android.criminalintent.app-main-37:/mipmap-anydpi-v26/ic_launcher_round.xml"
+    },
+    {
+        "merged": "com.bignerdranch.android.criminalintent.app-merged_res-35:/layout_activity_main.xml.flat",
+        "source": "com.bignerdranch.android.criminalintent.app-main-37:/layout/activity_main.xml"
+    },
+    {
+        "merged": "com.bignerdranch.android.criminalintent.app-merged_res-35:/mipmap-hdpi_ic_launcher.png.flat",
+        "source": "com.bignerdranch.android.criminalintent.app-main-37:/mipmap-hdpi/ic_launcher.png"
+    },
+    {
+        "merged": "com.bignerdranch.android.criminalintent.app-merged_res-35:/drawable-xhdpi_ic_solved.png.flat",
+        "source": "com.bignerdranch.android.criminalintent.app-main-37:/drawable-xhdpi/ic_solved.png"
+    },
+    {
+        "merged": "com.bignerdranch.android.criminalintent.app-merged_res-35:/drawable-xhdpi_ic_menu_add.png.flat",
+        "source": "com.bignerdranch.android.criminalintent.app-main-37:/drawable-xhdpi/ic_menu_add.png"
+    },
+    {
+        "merged": "com.bignerdranch.android.criminalintent.app-merged_res-35:/drawable-xxhdpi_ic_menu_add.png.flat",
+        "source": "com.bignerdranch.android.criminalintent.app-main-37:/drawable-xxhdpi/ic_menu_add.png"
+    },
+    {
+        "merged": "com.bignerdranch.android.criminalintent.app-merged_res-35:/mipmap-xxhdpi_ic_launcher.png.flat",
+        "source": "com.bignerdranch.android.criminalintent.app-main-37:/mipmap-xxhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "com.bignerdranch.android.criminalintent.app-merged_res-35:/mipmap-xhdpi_ic_launcher.png.flat",
+        "source": "com.bignerdranch.android.criminalintent.app-main-37:/mipmap-xhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "com.bignerdranch.android.criminalintent.app-merged_res-35:/drawable-hdpi_ic_menu_add.png.flat",
+        "source": "com.bignerdranch.android.criminalintent.app-main-37:/drawable-hdpi/ic_menu_add.png"
+    },
+    {
+        "merged": "com.bignerdranch.android.criminalintent.app-merged_res-35:/drawable_ic_launcher_background.xml.flat",
+        "source": "com.bignerdranch.android.criminalintent.app-main-37:/drawable/ic_launcher_background.xml"
+    },
+    {
+        "merged": "com.bignerdranch.android.criminalintent.app-merged_res-35:/drawable-mdpi_ic_solved.png.flat",
+        "source": "com.bignerdranch.android.criminalintent.app-main-37:/drawable-mdpi/ic_solved.png"
+    }
+]

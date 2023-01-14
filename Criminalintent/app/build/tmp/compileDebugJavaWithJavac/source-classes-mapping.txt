@@ -1,0 +1,2 @@
+com/bignerdranch/android/criminalintent/BuildConfig.java
+ com.bignerdranch.android.criminalintent.BuildConfig

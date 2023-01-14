@@ -1,0 +1,2 @@
+com/example/lab5/BuildConfig.java
+ com.example.lab5.BuildConfig
